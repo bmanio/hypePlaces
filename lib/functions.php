@@ -10,7 +10,7 @@ namespace hypeJunction\Places;
  */
 function get_icon_sizes($entity) {
 
-	$config = elgg_get_config('icon_sizes');
+	$config = function_exists("elgg_get_icon_sizes") ? elgg_get_icon_sizes('object', 'hjplace') : elgg_get_config('icon_sizes');
 	$config = elgg_trigger_plugin_hook('entity:icon:sizes', 'object', array(
 		'entity' => $entity,
 			), $config);
