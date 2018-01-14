@@ -9,7 +9,7 @@ if ($group->places_enable == "no") {
 }
 
 $all_link = elgg_view('output/url', array(
-	'href' => PAGEHANDLER . "/group/$group->guid",
+	'href' => "places/group/$group->guid",
 	'text' => elgg_echo('link:view:all'),
 	'is_trusted' => true,
 		));
@@ -33,7 +33,7 @@ if (!$content) {
 
 if ($group->canWriteToContainer(0, 'object', Place::SUBTYPE)) {
 	$new_link = elgg_view('output/url', array(
-		'href' => PAGEHANDLER . "/create/$group->guid",
+		'href' => "places/create/$group->guid",
 		'text' => elgg_echo('places:create'),
 		'is_trusted' => true,
 	));

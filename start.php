@@ -12,8 +12,6 @@
 
 namespace hypeJunction\Places;
 
-const PLUGIN_ID = 'hypePlaces';
-
 require_once dirname(dirname(dirname(__FILE__))) . '/vendor/autoload.php';
 
 require_once __DIR__ . '/lib/functions.php';

@@ -45,7 +45,7 @@ class Place extends ElggObject {
 	 * @return integer Duration in seconds
 	 */
 	public function getCheckinDuration() {
-		$minutes = elgg_get_plugin_setting('checkin_duration', PLUGIN_ID);
+		$minutes = elgg_get_plugin_setting('checkin_duration', 'hypePlaces');
 		if (!$minutes) {
 			$minutes = self::CHECKIN_DURATION;
 		}

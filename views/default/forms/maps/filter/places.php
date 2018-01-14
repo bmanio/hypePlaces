@@ -38,7 +38,7 @@ $body .= '</div>';
 $body .= '<div>';
 $body .= '<label>' . elgg_echo('maps:filter:objects:radius') . '</label>';
 $body .= '<div class="maps-filter-radius">';
-$metric_system = elgg_get_plugin_setting('metric_system', PLUGIN_ID);
+$metric_system = elgg_get_plugin_setting('metric_system', 'hypePlaces');
 $key = 'maps:proximity:' . $metric_system;
 $body .= elgg_view('input/dropdown', array(
 	'name' => 'radius',

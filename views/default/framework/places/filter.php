@@ -8,14 +8,14 @@ $tabs = array(
 //	'featured' => array(
 //		'name' => 'featured',
 //		'text' => elgg_echo('places:filter:featured'),
-//		'href' => PAGEHANDLER . '/featured',
+//		'href' => 'places/featured',
 //		'selected' => ($filter_context == 'featured'),
 //		'priority' => 100
 //	),
 	'all' => array(
 		'name' => 'all',
 		'text' => elgg_echo('places:filter:all'),
-		'href' => PAGEHANDLER . '/all',
+		'href' => 'places/all',
 		'selected' => ($filter_context == 'all'),
 		'priority' => 200
 	),
@@ -27,14 +27,14 @@ if (elgg_is_logged_in()) {
 	$tabs['owner'] = array(
 		'name' => 'owner',
 		'text' => elgg_echo('places:filter:mine'),
-		'href' => PAGEHANDLER . '/owner/' . $user->username,
+		'href' => 'places/owner/' . $user->username,
 		'selected' => ($filter_context == 'owner' && $page_owner->guid == $user->guid),
 		'priority' => 300
 	);
 	$tabs['bookmarks'] = array(
 		'name' => 'bookmarked',
 		'text' => elgg_echo('places:filter:bookmarked'),
-		'href' => PAGEHANDLER . '/bookmarked/' . $user->username,
+		'href' => 'places/bookmarked/' . $user->username,
 		'selected' => ($filter_context == 'bookmarked' && $page_owner->guid == $user->guid),
 		'priority' => 400
 	);

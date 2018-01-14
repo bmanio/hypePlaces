@@ -18,7 +18,7 @@ function url_handler($hook, $type, $return, $params) {
 
 	if (elgg_instanceof($entity, 'object', 'hjplace')) {
 		$friendly_title = elgg_get_friendly_title($entity->title);
-		return elgg_normalize_url(PAGEHANDLER . '/profile/' . $entity->guid . '/' . $friendly_title);
+		return elgg_normalize_url('places/profile/' . $entity->guid . '/' . $friendly_title);
 	}
 
 	return $return;
@@ -41,7 +41,7 @@ function entity_icon_url($hook, $type, $return, $params) {
 
 	if (elgg_instanceof($entity, 'object', Place::SUBTYPE)) {
 		if (!$entity->icontime) {
-			return elgg_normalize_url('mod/' . PLUGIN_ID . '/graphics/icon/' . $size . '.png');
+			return elgg_normalize_url('mod/hypePlaces/graphics/icon/' . $size . '.png');
 		}
 		return elgg_normalize_url("places/icon/{$entity->guid}/{$size}");
 	}
@@ -216,13 +216,13 @@ function owner_block_menu_setup($hook, $type, $return, $params) {
 		$return[] = ElggMenuItem::factory(array(
 					'name' => 'group:places',
 					'text' => elgg_echo('places:group'),
-					'href' => PAGEHANDLER . "/group/$entity->guid"
+					'href' => "places/group/$entity->guid"
 		));
 	} else if (elgg_instanceof($entity, 'user')) {
 		$return[] = ElggMenuItem::factory(array(
 					'name' => 'user:albums',
 					'text' => elgg_echo('places'),
-					'href' => PAGEHANDLER . "/owner/$entity->username"
+					'href' => "places/owner/$entity->username"
 		));
 	}
 
@@ -248,7 +248,7 @@ function widget_layout_permissions_check($hook, $type, $return, $params) {
 		return $return;
 	}
 
-	if ($context == PAGEHANDLER && $user->guid == $page_owner->owner_guid) {
+	if ($context == 'places' && $user->guid == $page_owner->owner_guid) {
 		return true;
 	}
 

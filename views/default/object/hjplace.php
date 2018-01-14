@@ -15,7 +15,7 @@ if (!elgg_in_context('widgets')) {
 		'entity' => $entity,
 		'sort_by' => 'priority',
 		'class' => 'elgg-menu-hz',
-		'handler' => PAGEHANDLER,
+		'handler' => 'places',
 	));
 }
 
