@@ -13,7 +13,6 @@
 namespace hypeJunction\Places;
 
 const PLUGIN_ID = 'hypePlaces';
-const PAGEHANDLER = 'places';
 
 require_once dirname(dirname(dirname(__FILE__))) . '/vendor/autoload.php';
 
@@ -30,7 +29,7 @@ function init() {
 	/**
 	 * Handle pages and URLs
 	 */
-	elgg_register_page_handler(PAGEHANDLER, __NAMESPACE__ . '\\page_handler');
+	elgg_register_page_handler('places', __NAMESPACE__ . '\\page_handler');
 	elgg_register_plugin_hook_handler('entity:url', 'object', __NAMESPACE__ . '\\url_handler');
 
 	/**
@@ -77,10 +76,10 @@ function init() {
 	elgg_register_plugin_hook_handler('entity:icon:sizes', 'object', __NAMESPACE__ . '\\entity_icon_sizes');
 
 	// Add group option
-	if (HYPEMAPS_GROUP_PLACES) {
+//	if (HYPEMAPS_GROUP_PLACES) {
 		add_group_tool_option('places', elgg_echo('places:groupoption:enable'), true);
 		elgg_extend_view('groups/tool_latest', 'framework/places/group_module');
-	}
+//	}
 
 	elgg_register_widget_type('places_about', elgg_echo('places:widgets:about'), elgg_echo('places:widgets:about:desc'), array('places'));
 	elgg_register_widget_type('places_activity', elgg_echo('places:widgets:activity'), elgg_echo('places:widgets:activity:desc'), array('places'));
